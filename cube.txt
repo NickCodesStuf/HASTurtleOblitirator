@@ -1,0 +1,30 @@
+face x+
+vertex 1 1 1
+vertex 1 -1 1
+vertex 1 -1 -1
+vertex 1 1 -1
+face y+
+vertex 1 1 1
+vertex -1 1 1
+vertex -1 1 -1
+vertex 1 1 -1
+face z+
+vertex 1 1 1
+vertex -1 1 1
+vertex -1 -1 1
+vertex 1 -1 1
+face x-
+vertex -1 1 1
+vertex -1 -1 1
+vertex -1 -1 -1
+vertex -1 1 -1
+face y-
+vertex 1 -1 1
+vertex -1 -1 1
+vertex -1 -1 -1
+vertex 1 -1 -1
+face z-
+vertex 1 1 -1
+vertex -1 1 -1
+vertex -1 -1 -1
+vertex 1 -1 -1
