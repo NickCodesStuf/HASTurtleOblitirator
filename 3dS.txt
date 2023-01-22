@@ -1,0 +1,88 @@
+face
+vertex 0 -6 0
+vertex 0 -2 0
+vertex -2 0 0
+vertex -4 2 0
+vertex -4 6 0
+vertex 0 10 0
+vertex 4 6 0
+vertex 4 2 0
+vertex 2 0 0
+vertex 0 2 0
+vertex 0 6 0
+vertex 0 2 0
+vertex 4 -2 0
+vertex 4 -6 0
+vertex 0 -10 0
+vertex -4 -6 0
+vertex -4 -2 0
+vertex -2 0 0
+vertex 0 -2 0
+face 2
+vertex 0 -6 2
+vertex 0 -2 2
+vertex -2 0 2
+vertex -4 2 2
+vertex -4 6 2
+vertex 0 10 2
+vertex 4 6 2
+vertex 4 2 2
+vertex 2 0 2
+vertex 0 2 2
+vertex 0 6 2
+vertex 0 2 2
+vertex 4 -2 2
+vertex 4 -6 2
+vertex 0 -10 2
+vertex -4 -6 2
+vertex -4 -2 2
+vertex -2 0 2
+vertex 0 -2 2
+connections
+vertex 0 -6 0
+vertex 0 -6 2
+
+vertex 0 -2 0
+vertex 0 -2 2
+
+vertex -4 2 0
+vertex -4 2 2
+
+vertex -4 6 0
+vertex -4 6 2
+
+vertex 0 10 0
+vertex 0 10 2
+
+vertex 4 6 0
+vertex 4 6 2
+
+vertex 4 2 0
+vertex 4 2 2
+
+vertex 0 2 0
+vertex 0 2 2
+
+vertex 0 6 0
+vertex 0 6 2
+
+vertex 0 2 0
+vertex 0 2 2
+
+vertex 4 -2 0
+vertex 4 -2 2
+
+vertex 4 -6 0
+vertex 4 -6 2
+
+vertex 0 -10 0
+vertex 0 -10 2
+
+vertex -4 -6 0
+vertex -4 -6 2
+
+vertex -4 -2 0
+vertex -4 -2 2
+
+vertex 0 -2 0
+vertex 0 -2 2

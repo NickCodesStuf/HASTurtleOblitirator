@@ -24,6 +24,7 @@ class Point():
         return (Point(self.X, self.Y, 0))
 
     def perspectiveProjection(self, FOCAL_LENGTH):
+        # I did it this way because Quaternions make my brain hurt
         perspectiveMagnitude = np.tan(findDivergenceAngle(Point(0, 0, 0 - FOCAL_LENGTH), ORIGIN, self)) * FOCAL_LENGTH
         orthographicMagnitude = findDistance(ORIGIN, self.orthographicProjection())
         return (Point(
@@ -54,11 +55,11 @@ class Point():
     # why didnt I do this for rotation? I HAVE NO CLUE
     def transpose(self, magnitude, axis):
         if axis == 'X':
-            return Point(self.X, self.Y, self.Z + magnitude)
+            return Point(self.X + magnitude, self.Y, self.Z)
         elif axis == 'Y':
             return Point(self.X, self.Y + magnitude, self.Z)
         elif axis == 'Z':
-            return Point(self.X + magnitude, self.Y, self.Z)
+            return Point(self.X, self.Y, self.Z + magnitude)
         else:
             print("Invalid transposition on axis {}".format(axis))
 
@@ -182,7 +183,8 @@ def interpretAsciiSTL(file, transformation):
                     shape.append(loopqueue)
                     loopqueue = []
                 continue
-            # I am sure that there is a better way of reformating the vectors,
+            print(line)
+            # I am sure that there is a better way of reformating the vectors, but I dont care
             vertexArguments = line.split(' ')
             vertexArguments.pop(0)
             vertexArguments[2] = vertexArguments[2].strip()
@@ -294,7 +296,8 @@ class TurtleCompiler():
         if angle < 0:
             self.script.append("turnLeft({});".format(degrees(0 - angle)))
 
-    def generateCustomCommands(self, commandName, value):        self.script.append("{}({});".format(commandName, value))
+    def generateCustomCommands(self, commandName, value):
+        self.script.append("{}({});".format(commandName, value))
 
     def comment(self, comment):
         self.script.append("//{}".format(comment))
@@ -306,8 +309,8 @@ class TurtleCompiler():
 def main():
     FOCAL_LENGTH = 1000
     viewport = Renderer(PREVIEW_WINDOW, WHITE, FOCAL_LENGTH)
-    preset = TransformationPreset(50, 1, 1, 1, 0, 0, 100)
-    cube = interpretAsciiSTL('cube.txt', preset)
+    preset = TransformationPreset(10, 0, .5, 0, 0, 0, 100)
+    cube = interpretAsciiSTL('3dS.txt', preset)
     turtle = Turtle(0, 0, 0, FOCAL_LENGTH)
     turtle.drawShape(cube)
     turtle.compiler.compileToConsole()
